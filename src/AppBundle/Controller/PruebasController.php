@@ -18,7 +18,7 @@ class PruebasController extends Controller
 //		
 //	}
 	
-	// PASANDO PARAMETROS POR LAS URL | SE AGREGA name u surname a la routing y aquí
+	// PASANDO PARAMETROS POR LAS URL | SE AGREGA name y surname a la routing y aquí
 	
 	
 	
