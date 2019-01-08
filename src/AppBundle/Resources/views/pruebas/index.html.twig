@@ -3,5 +3,63 @@
 	{{ parent() }}
 	{{ texto }}
 		<hr/>
+		
+		{#AQUI SE MUESTRA EL NOMBRE PERA Y SI ESE NOMBRE COMIENZA 
+		CON "" MOSTRARA LA FRUTA MANZANA#}
+		
 		{{ fruta.pera }}
+		{#{% if fruta.pera =="rica" %}#}
+		{% if fruta.pera starts with 'r' %}
+			{{ fruta.manzana }}
+		{% endif %}
+		
+		{#TAMBIEN SE PUEDE UTILIZAR ends with "", <, >, ==, !==#}
+		
+		<hr/>
+		{#ASI SE DECLARA UNA VARIABLE EN TWIG#}
+		{% set variable = "Hola Twig" %}
+		{{ variable }}
+		
+		<hr/>
+		{#SE PUEDEN UTILIZAR TODOS LOS OPERADORES LOGICOS: <, >, ==, !==#}
+		{% if productos|length >4 |e %}
+		<ul> 
+		{% for producto in productos %}
+			<li>{{ producto.producto }} - {{ producto.Precio }}</li>
+			
+		{% endfor %}
+		</ul>
+		{% endif %}
+		
+		<hr/>
+		{#{% set fecha = date("") %}#}
+		{% set fecha = date("-2 days", "America/Santo_Domingo") %}
+		{#{{ dump(fecha) }}#}
+		{{ fecha.date }}
+		
+		<br>
+		<hr/>
+		{{ "now"|date('d/m/Y H:i', timezone="Europe/Paris") }}
+		
+		<hr/>
+		{{ "now"|date(null, "America/Santo_Domingo") }}
+		
+		<hr/>
+		{{ include('@App/pruebas/partial.html.twig') }}
+		
+		{#IMPRIMIENDO MIN O MAX, RANDOM, RANGO#}
+		<hr/>
+		{{ min(87,43,189,34) }}
+		<hr/>
+		{{ random(["Batman", "Caperucita Roja", "Hitch", "Iroman"]) }}
+		<hr/>
+		
+		{% for i in range(1, 30, 4) %}
+			<li>{{ i }}<br/> </li>
+		{% endfor %}
+		<hr/>
+		<br/>
+		{{ generateTable(2,6, productos)|raw }}
+		{#{{ generateTable(productos)|raw }}#}
+		
 {% endblock %}

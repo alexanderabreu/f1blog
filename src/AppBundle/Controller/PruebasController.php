@@ -44,7 +44,6 @@ class PruebasController extends Controller
 				array('texto' => $name. " - " .$page, 
 					  'productos' => $productos,
 					  'fruta'    => $fruta
-				));
-		
-}}
- 
+				)); 
+	}
+}
